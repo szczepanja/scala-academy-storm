@@ -7,7 +7,7 @@ import org.apache.storm.serialization.IKryoFactory
 
 import java.util
 
-class TypedBlizzardSerializer extends IKryoFactory{
+class TypedBlizzardSerializer extends IKryoFactory {
   override def getKryo(conf: util.Map[String, AnyRef]): Kryo = {
     try {
       val kryoInst = new ScalaKryoInstantiator()

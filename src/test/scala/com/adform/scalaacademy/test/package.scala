@@ -19,7 +19,7 @@ package object test {
     def getEmittedTuplesBy(componentId: String): List[FixedTuple] = {
       result.asScala.get(componentId) match {
         case Some(tuples: JList[FixedTuple]) => tuples.asScala.toList
-        case None => throw new AssertionError(s"The $componentId has not emit any tuples or does not exist in topology")
+        case None                            => throw new AssertionError(s"The $componentId has not emit any tuples or does not exist in topology")
       }
     }
 

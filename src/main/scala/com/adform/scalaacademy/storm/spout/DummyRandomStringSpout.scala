@@ -6,7 +6,7 @@ import org.apache.storm.spout.SpoutOutputCollector
 import org.apache.storm.task.TopologyContext
 import org.apache.storm.topology.OutputFieldsDeclarer
 import org.apache.storm.topology.base.BaseRichSpout
-import org.apache.storm.tuple.{Fields, Values}
+import org.apache.storm.tuple.Values
 import org.apache.storm.utils.Utils
 
 import java.util.{Map => JMap}
