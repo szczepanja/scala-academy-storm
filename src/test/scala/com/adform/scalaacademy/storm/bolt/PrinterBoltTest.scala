@@ -3,7 +3,7 @@ package com.adform.scalaacademy.storm.bolt
 import com.adform.scalaacademy.storm.bolt.PrinterBoltTest.{correctTuples, topologyName}
 import com.adform.scalaacademy.test.{TestBoltSupport, TestStormBase}
 import com.adform.scalaacademy.storm.bolt.PrinterBolt
-import com.adform.scalaacademy.test._
+import com.adform.scalaacademy.test.TestBoltSupport.StormTestResultSupport
 import org.apache.storm.Testing
 import org.apache.storm.testing.FixedTuple
 import org.apache.storm.tuple.Values

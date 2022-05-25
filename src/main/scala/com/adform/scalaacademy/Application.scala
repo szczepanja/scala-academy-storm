@@ -47,4 +47,4 @@ object Application {
   }
 }
 
-case class ApplicationArgs(isLocal: Boolean = false)
+case class ApplicationArgs(isLocal: Boolean = true)
