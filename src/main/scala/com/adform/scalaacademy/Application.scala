@@ -45,6 +45,7 @@ object Application {
 
     OParser.parse(parser, args, ApplicationArgs()).fold(ApplicationArgs())(identity)
   }
+
 }
 
 case class ApplicationArgs(isLocal: Boolean = true)

@@ -5,7 +5,7 @@ import com.typesafe.scalalogging.StrictLogging
 import pureconfig.ConfigSource
 import pureconfig.generic.auto._
 
-case class Config(topology: TopologyConfiguration)
+case class Config(topology: TopologyConfiguration, kafkaSpout: KafkaConsumerConfig)
 
 object Config extends StrictLogging {
   def load: Config = ConfigSource.default.loadOrThrow[Config]

@@ -1,20 +1,18 @@
 package com.adform.scalaacademy.storm
 
+import com.adform.scalaacademy.DeviceMessageSpout
 import com.adform.scalaacademy.config.Config
 import com.adform.scalaacademy.infrastructure.TypedBlizzardSerializer
 import com.adform.scalaacademy.storm.bolt.PrinterBolt
-import com.adform.scalaacademy.storm.spout.DummyRandomStringSpout
 import org.apache.storm.{Config => StormTopologyConfig}
 import org.apache.storm.generated.StormTopology
 import org.apache.storm.topology.TopologyBuilder
 
 class Topology(val config: Config) {
-
   def create(): StormTopology = {
     val builder = new TopologyBuilder()
-
-    val spout = new DummyRandomStringSpout
-    val sink  = new PrinterBolt
+    val spout = DeviceMessageSpout.createUnsafe(config.kafkaSpout)
+    val sink = new PrinterBolt
 
     builder.setSpout("printer-spout", spout)
     builder
@@ -24,9 +22,10 @@ class Topology(val config: Config) {
 
     builder.createTopology()
   }
+
   def topologyConfig(): StormTopologyConfig = {
     val topologyConf = config.topology
-    val stormConfig  = new StormTopologyConfig()
+    val stormConfig = new StormTopologyConfig()
 
     stormConfig.setDebug(topologyConf.debug)
     stormConfig.setNumAckers(topologyConf.numAckers)

@@ -24,7 +24,6 @@ lazy val buildInfoSettings = Seq(
     sbtVersion,
     action("lastCommitHash") {
       import scala.sys.process._
-      // if the build is done outside of a git repository, we still want it to succeed
       Try("git rev-parse HEAD".!!.trim).getOrElse("?")
     }
   ),

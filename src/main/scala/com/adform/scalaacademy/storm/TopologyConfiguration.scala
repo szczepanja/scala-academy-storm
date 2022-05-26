@@ -11,3 +11,12 @@ case class TopologyConfiguration(
     messageTimeout: FiniteDuration,
     maxSpoutPending: Int
 )
+
+case class KafkaConsumerConfig(
+                                bootstrapServers: List[String],
+                                topic: String,
+                                groupId: String,
+                                fetchMinBytes: Int,
+                                fetchMaxBytes: Int,
+                                partitionsNumber: Int
+                              )
